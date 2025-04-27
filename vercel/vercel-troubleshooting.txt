@@ -1,0 +1,100 @@
+`$  npm install -g create-next-app`
+
+```
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'create-next-app@13.5.4',
+npm WARN EBADENGINE   required: { node: '>=16.14.0' },
+npm WARN EBADENGINE   current: { node: 'v15.0.1', npm: '7.0.3' }
+```
+
+Had to upgrade npm version.
+
+###########################################
+
+
+`$ vercel`
+
+```
+? In which directory is your code located?
+```
+
+`“Error: The provided path < > does not exist. Please choose a different one”`
+
+I did not know you needed to just press enter here.  I ran into errors with directory naming.  
+
+
+###########################################
+
+`$ vercel`
+
+```
+🔗  Linked to tamarahensons-projects/th-assessment-serole (created .vercel)
+🔍  Inspect: https://vercel.com/tamarahensons-projects/th-assessment-serole/GiEVB4MKunbELxyUsETTcqeuXhpw [1s]
+✅  Preview: https://th-assessment-serole-hwtrhckl4-tamarahensons-projects.vercel.app [1s]
+```
+
+`Error: Command "npm install" exited with 1`
+`Error: Check your logs at https://th-assessment-serole-hwtrhckl4-tamarahensons-projects.vercel.app/_logs or run `vercel logs th-assessment-serole-hwtrhckl4-tamarahensons-projects.vercel.app``
+
+```
+npm ERR! notsup Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin"} (current: {"os":"linux"})
+```
+
+`nano package-lock.json` to verify:
+
+```
+    "node_modules/fsevents": {
+      "version": "2.3.3",
+      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
+      "hasInstallScript": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
+      }
+```
+
+`nano package.json` to add:
+
+```
+"optionalDependencies": { "fsevents": "2.x.x" }
+```
+
+###########################################
+
+`$ vercel`
+
+```
+Error: The file "/vercel/path0/Next.js default/routes-manifest.json" couldn't be found. This is often caused by a misconfiguration in your project.
+```
+
+https://github.com/vercel/next.js/discussions/47517
+https://github.com/vercel/vercel/blob/main/errors/now-next-routes-manifest.md
+
+Disabled all override due to earlier mistake:  https://vercel.com/tamarahensons-projects/th-assessment-serole/settings
+
+###########################################
+
+SUCCESS!  
+
+```
+$  vercel
+Vercel CLI 32.4.1
+🔍  Inspect: https://vercel.com/tamarahensons-projects/th-assessment-serole/75Lj3PQXCZ7zdmXZS6VR93FTFA7a [1s]
+✅  Preview: https://th-assessment-serole-1ne9ht9wp-tamarahensons-projects.vercel.app [1s]
+📝  To deploy to production (th-assessment-serole.vercel.app), run `vercel --prod`
+$ 
+``` 
+```
+$  vercel --prod
+Vercel CLI 32.4.1
+🔍  Inspect: https://vercel.com/tamarahensons-projects/th-assessment-serole/8HPPMD5iqf1ntaeosWApiyq1KwU1 [1s]
+✅  Production: https://th-assessment-serole-f9ngrlh4l-tamarahensons-projects.vercel.app [1s]
+$ 
+```
+
+###########################################
+
+ 

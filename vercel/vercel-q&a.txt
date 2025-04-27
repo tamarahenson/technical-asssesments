@@ -1,0 +1,155 @@
+Question 1:
+
+Describe how you solved a challenge that one of your previous teams faced. How did you determine your solution was successful?
+
+While working at Portainer, the team were not using automation for repros nor did they have an internal knowledge base.  For example, creating a Docker Registry server.  I wrote up a How To build guide as well as Vagrant code to deploy the server and registry.  This solution turned out to be successful when the team checked out my code from the internal repo I had created.  I also wrote up How To guides to build GPU instances in AWS and Terraform to automate.  
+
+#########################################################
+
+Question 2:
+
+How would you compare Next.js with another framework? Feel free to compare with a framework of your choice.
+
+Next.js is a framework built on top of React.  It is tailored for building production-ready web applications with features like server-side rendering and static site generation. It works in scenarios where SEO, performance, and dynamic data fetching are crucial.  React is a library for building user interfaces and can be combined with other tools or frameworks for server-side rendering and static site generation.  However, requires additional configuration and setup. Choosing between Next.js and React depends on the specific requirements and complexity of a project.
+
+#########################################################
+
+Question 3:
+
+When would you choose to use Edge Functions, Serverless Functions, or Edge Middleware with Vercel?
+
+Source:  https://vercel.com/docs/functions/edge-functions
+
+1. Edge Functions:
+
+  • Use Case:
+  ◦ When you need to run custom logic at the edge server before the request reaches your app.
+
+  • Scenario:
+  ◦ Modify request headers, cache certain responses, or implement custom auth logic directly at the edge.
+
+  • Advantages:
+  ◦ Execution at the edge leads to minimal latency for end users.
+  ◦ Allows for fine-grained control over how requests are handled before they reach your app.
+
+
+Choose Edge Functions when you need to modify or enhance requests at the edge server itself. This is helpful for low-level operations like request/response manipulation.
+
+
+Source:  https://vercel.com/docs/functions/serverless-functions
+
+2. Serverless Functions:
+
+  • Use Case:
+  ◦ When you need to execute code in response to an HTTP request, but do not require it to run at the edge.
+
+  • Scenario:
+  ◦ Handling form submissions, processing data, or performing operations that do not need to be executed at the edge.
+
+  • Advantages:
+  ◦ Supports executing serverless functions in response to requests, allowing dynamic behavior.
+  ◦ Can interact with databases, APIs, and other external services.
+
+Choose Serverless Functions when you need dynamic processing of requests, but do not require it to be executed at the edge. This is helpful for backend tasks like form submissions, processing data, or interacting with external services.
+
+
+Source:  https://vercel.com/docs/functions/edge-middleware
+
+3. Edge Middleware:
+  • Use Case:
+  ◦ When you need to apply common logic or behavior to multiple routes or pages in your app.
+
+  • Scenario:
+  ◦ Enforce authentication, handle error responses, or apply other transformations to requests or responses.
+
+  • Advantages:
+  ◦ Middleware can be used to apply consistent behavior across multiple routes without duplicating code.
+
+Choose Edge Middleware when you need to apply consistent logic or behavior to multiple routes or pages. This voids duplication of code for common tasks.
+
+#########################################################
+
+Question 4:
+
+A customer has a project on Vercel and they want to redirect the /blog path to another website. Please write a reply to the customer. Separately, list any relevant documentation you found and any feedback or information you’d like to share about your decision making process. Imagine that the customer from Question 4 responds with the following email: “I’m so frustrated. I’ve been trying to make this work for hours and I just can’t figure it out. It must be a platform issue so why don't you just fix it for me instead of asking me questions.”
+
+Customer:
+
+Good morning!
+
+I understand you are having difficulties with redirection.  To redirect the /blog path to another website, you can use Vercel's rewrite and redirect capabilities.  
+
+Documentation reference here:  https://vercel.com/docs/projects/project-configuration#routes
+
+Can you please try the following:
+
+[1] Login to Vercel
+
+[2] Select Your Project
+
+[3] Add the `rerwite` in the `vercel.json` file:
+
+```
+        {
+          "rewrites": [
+            {
+              "source": "/blog",
+              "destination": "https://example.com/blog",
+              "statusCode": 301
+            }
+          ]
+        }
+```        
+
+        
+
+[4] Deploy Your Project.  
+
+[5] Verify the Redirect.  Visit URL and navigate to /blog.  You should be redirected.  
+
+Please let me know if you need further information or you have questions.  
+
+Have a great rest of the day!
+
+Thanks!
+Tamara Henson
+Support Engineer - Vercel
+
+###############################################
+
+Question 5:
+
+A customer is creating a site and would like their project not to be indexed by search engines. Please write a reply to the customer. Separately, list any relevant documentation you found and any feedback or information you’d like to share about your decision making process.
+
+Customer:
+
+Good morning!
+
+I understand you do not want your site indexed by search engines.  You can add a meta tag in your code that instructs engines to not index your site:
+
+```
+<meta name="robots" content="noindex, nofollow">
+```
+
+Documentation referenced here:  https://developers.google.com/search/docs/crawling-indexing/block-indexing
+
+Upon making the change, deploy your project.  You can verify by performing a test search.  
+
+Please let me know if you need further information or you have questions.  
+
+Have a great rest of the day!
+
+Thanks!
+Tamara Henson
+Support Engineer - Vercel
+
+################################################
+
+Question 6:
+
+How could we improve or alter this familiarization exercise?
+
+Due to my lack of inexperience with next.js and creating web apps/sites, I was not able to fully complete the assignment.  I spent the allotted 3 hours just getting vercel to run on my laptop.  And, spent an additional hour answering the above questions without writing code.  I imagine the assessment would have taken much longer with the next.js inexperience blocker.  To conclude, I am submitting my best effort.  
+
+
+
